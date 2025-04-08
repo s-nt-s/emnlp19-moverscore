@@ -15,7 +15,7 @@ from functools import partial
 
 from transformers import AutoTokenizer, AutoModel
 
-device = 'cuda'
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 if os.environ.get('MOVERSCORE_MODEL'):
     model_name = os.environ.get('MOVERSCORE_MODEL')
